@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 
-export default function ExperienceCard(props) {
+export default function ExperienceCard({ dataObj }) {
   return (
     <div>
       <div className='rounded-[32px] bg-gradient-to-br from-[#b2d6ff] to-[rgb(178,214,255,0.2)] p-[2px] '>
@@ -9,8 +9,8 @@ export default function ExperienceCard(props) {
           <div>
             <div className='rounded-[12px] w-[80px] h-[80px] bg-gradient-to-br from-[#b2d6ff] to-[rgb(178,214,255,0.2)]'>
               <Image
-                src={`/assets/${props.dataObj.photoName}`}
-                alt={props.dataObj.companyName}
+                src={`/assets/${dataObj.photoName}`}
+                alt={dataObj.companyName}
                 width={80}
                 height={80}
                 className='p-[2px] rounded-[12px]'
@@ -18,12 +18,10 @@ export default function ExperienceCard(props) {
             </div>
           </div>
           <div className='flex flex-col gap-[1rem]'>
-            <h3>{props.dataObj.companyName}</h3>
-            <p className='text-[#b3b3b3]'>{props.dataObj.duration}</p>
+            <h3>{dataObj.companyName}</h3>
+            <p className='text-[#b3b3b3]'>{dataObj.duration}</p>
             <div className='px-[1rem] py-[6px] bg-[#164b4b] rounded-full '>
-              <p className='text-[0.875rem] text-center'>
-                {props.dataObj.role}
-              </p>
+              <p className='text-[0.875rem] text-center'>{dataObj.role}</p>
             </div>
           </div>
         </div>
