@@ -1,7 +1,20 @@
 import ExperienceCard from '@/components/ExperienceCard';
 import React from 'react';
-import Terado from '../../public/assets/Terado.png';
-import Thinkarz from '../../public/assets/Thinkarz.png';
+
+const data = [
+  {
+    companyName: 'Thinkarz Technologies Pvt. Ltd.',
+    duration: 'November 2021 - May 2022',
+    role: 'UI/UX Designer(Internship)',
+    photoName: 'Thinkarz.png',
+  },
+  {
+    companyName: 'Terado Engineering Pvt. Ltd.',
+    duration: 'August 2022 - Present',
+    role: 'UI/UX Designer(Full-time)',
+    photoName: 'Terado.png',
+  },
+];
 
 export default function Experience() {
   return (
@@ -12,19 +25,11 @@ export default function Experience() {
 
       <div className='flex flex-col gap-[32px]'>
         <div className='flex gap-[20px] flex-col tablet:flex-row'>
-          <ExperienceCard
-            companyName='Thinkarz Technologies Pvt. Ltd.'
-            duration='November 2021 - May 2022'
-            role='UI/UX Designer (Internship)'
-            img={Thinkarz}
-          />
-          <ExperienceCard
-            companyName='Terado Engineering Pvt. Ltd.'
-            duration='August 2022 - Present'
-            role='UI/UX Designer (Full-time)'
-            img={Terado}
-          />
+          {data.map(exp => (
+            <ExperienceCard key={exp.name} dataObj={exp} />
+          ))}
         </div>
+
         <div className='flex justify-center'>
           <div className='rounded-full bg-gradient-to-br from-[#b2d6ff] to-[rgb(178,214,255,0.2)] p-[2px] '>
             <button className='rounded-full py-[1rem] px-[2.50rem] bg-gradient-to-l to-[#3d124d] from-[#16061a]'>
